@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./lightbox/css/lightbox.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .wrap {
+            width: 1200px;
+            margin: auto;
+            /* border: 1px solid red; */
+        }
+
+        .box {
+            background-color: rgb(252, 250, 253); 
+            padding: 5px;
+            text-align: center;
+            width: 1200px;
+            margin: auto;
+            margin-bottom: 50px; 
+        }
+
+        .box img {
+            /* width: 300px;*/
+            
+            margin: 3px;
+            vertical-align: top; 
+
+        }
+
+        .box p {
+            font-size: 30px;
+            text-align: left;
+            color: rgb(109, 10, 10);
+            font-weight: bold;
+        }
+
+        /* 周圖片的css */
+        .header {
+            /* height: 200px; */
+
+        }
+
+        .header img {
+            /* 圖片大小 */
+            /* width: 250px; */
+            /*圖片上下左右的距離 */
+            /* margin: 50px; */
+        }
+
+        .header h1 {
+            /* position: absolute; */
+            /* left: 50px; */
+        }
+
+        .header ul {
+            /* position: absolute;
+            right: 250px;
+            top: 80px;
+            list-style: none;
+            border-bottom: 1px solid rgb(163, 160, 160);
+            width: 800px;
+            padding-bottom: 20px;
+            margin-bottom: 6px; */
+        }
+
+        .header ul li {
+            /* float: left;
+            margin-right: 20px;
+            font-size: 30px; */
+        }
+
+        .header ul li a {
+            /* color: rgb(109, 10, 10);
+            text-decoration: none;
+            padding: 10px 20px; */
+        }
+
+        .header ul li a:hover {
+            /* background-color: rgb(243, 177, 97); */
+            /* color: rgb(243, 177, 97); */
+        }
+
+        .date {
+            /* background-color: crimson;
+            color: brown; */
+        }
+
+        /* 簡介區 */
+        .banner {
+            /* /* background-color: rgb(248, 164, 53); */
+            width: 1200px;
+            height: 700PX;
+            background: linear-gradient(90deg, #fff 40%, transparent 60%)center center / 100% 100%,
+            url("../images/p31.png")right center / auto 100%;
+            /* background-images:url("../images/") */
+
+        }
+
+        .container {
+            /* widows: 1200px;
+            height: 100%;
+            margin: auto; */
+        }
+
+        .banner-txt {
+            /* /* height: 100%; */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 80px;
+            /*文字縮排*/
+            color: rgb(66, 64, 64);
+        }
+         /*學歷下的線*/
+        .banner-txt h1 {
+            font-size: 30px; 
+            border-bottom: 1px solid rgb(110, 103, 103);
+            /*加線條、粗細、顏色*/
+            font-weight: 900;
+            /*字體加粗*/
+            padding-bottom:10px;
+            margin-bottom: 10px;
+
+        }
+
+        .banner-txt h2 {
+             font-size: 20px;
+            /* font-weight: 700; */ 
+
+        }
+
+        /*自傳內文*/
+        .banner-txt p {
+            width: 450px;
+            padding-top: 20px;
+            /*和上排的行距*/
+            font-size: 15px;
+            color: rgb(110, 105, 105);
+            line-height: 2;
+            /*行距*/
+        }
+
+        /* 周圖片右邊的選單區css */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            /*選單靠右*/
+            align-items: center;
+            /*選單置中*/
+
+        }
+
+        /* 周圖片的css */
+        .header img {
+            height: 150px;
+            /*圖片尺寸*/
+
+            margin-bottom: 100PX;
+            /*圖片下的空間*/
+            margin: 50px 30PX;
+            /*周的上下左右距離*/
+        }
+         
+        a {
+            color: rgba(109, 10, 10);
+            /*選單字體顏色*/
+            text-decoration: none;
+            font-size: 20px;
+            margin-left: 10px;
+            margin-right: 10px;
+
+        }
+
+        a:hover {
+            /* background-color: rgb(243, 177, 97); */
+            /*滑署碰到後，底色變色*/
+            color: rgb(243, 177, 97);
+            /*滑署碰到後，字變顏色*/
+        }
+
+         /*選單下的線*/
+        .header ul {
+            display: flex;
+            justify-content: space-between;
+            margin-right: 10px;
+              
+            border-bottom: 1.5px solid #ccc; /*選單下的線*/
+            padding-bottom: 25px;
+        }
+        /*燈箱效果*/
+        .box {
+            margin-top: 50px;
+            width: 100%;
+            /* height: 1000px; */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .box img {
+            width: 380px;
+        }
+
+        .box p {
+            font-size: 20px;
+        }
+
+        /* 工作經歷 */
+        .content p {
+            padding-top: 150PX;
+            font-size: 20px;
+            text-align: left;
+            color: rgb(109, 10, 10);
+            font-weight: bold;
+        }
+
+        /* 工作經歷 */
+        .content img {
+            float: right;
+            margin-bottom: 42PX;
+            /* margin: auto; */
+        }
+
+        /* 學經證照 */
+        .item {
+            width: 400px;
+            position: relative;
+            /*對位基準點*/
+            /* border: 1PX solid red; */
+        }
+
+        .item img {
+            width: 100%;
+            vertical-align: top;
+        }
+
+        .item .txt {
+            /* 絕對定位 */
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            padding: 20PX;
+            background-color: rgba(0, 0, 0, 0.315);
+            /* 隱藏 */
+            opacity: 0;
+            /* 淡入淡出的效果 */
+            transition: opacity .5s;
+        }
+
+        .item:hover .txt {
+            /* 顯示 */
+            opacity: 1;
+        }
+
+        .item .txt h2 {
+            color: rgb(243, 228, 97);
+            font-size: 25PX;
+        }
+
+        .item .txt p {
+            color: rgb(243, 228, 97);
+            font-size: 25PX;
+        }
+
+        /* 動態生成線段.. 線條在字的下面 */
+        .item .txt h2::after {
+            content: '';
+            /*空的內容*/
+            display: block;
+            /*轉成區塊元素*/
+            width: 0%;
+            height: 2PX;
+            background-color: rgba(109, 10, 10);
+            margin-top: 10px;
+            margin-bottom: 10px;
+            transition: width .5s;
+        }
+
+        .item:hover h2::after {
+            width: 100%;
+        }
+
+        /* 學經證照 */
+        .s {
+            display: block;
+            padding-top: 3050PX;
+            font-size: 20px;
+            text-align: left;
+            color: rgb(109, 10, 10);
+            font-weight: bold;
+
+        }
+
+        .nav {
+            /* 給它一個框，設好長寬，div自動排列進框裡 */
+            
+            width: 1200px;
+            height: 570px;
+            display: flex;
+            justify-content: space-around;
+            /*圖與圖之間會有空隔*/
+            margin-bottom: 100PX;
+            /*圖片下的空間*/
+        }
+
+
+
+        /* 頁尾區 */
+        .footer {
+            clear: both;
+            background-color: rgba(109, 10, 10);
+            color: rgb(243, 177, 97);
+            /* height: 100px; */
+            text-align: center;
+            padding: 30PX 10PX;
+            line-height: 2;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrap">
+        <div class="header">
+            <h1>
+                <img src="./images/APPLE LOGO-09.png" alt="">
+            </h1>
+            <ul>
+
+                <li><a href="#link1">繪畫作品</a></li>
+                <li><a href="#link2">設計作品</a></li>
+                <li><a href="#link3">工作經歷</a></li>
+                <li><a href="#link4">學經證照</a></li>
+            </ul>
+        </div>
+        <div class="banner">
+            <div class="container">
+                <div class="banner-txt">
+                    <h1>愃芸
+                        <small>南台科技大學 財務金融系</small>
+                    </h1>
+
+                    <h2>16~17年的財會工作經驗</h2>
+                    <p>在財務的領域中，已經營了十七年，越發覺得自身的細心與追求真理的個性跟此職的訴在歷經了幾個職缺的轉換，發現幾乎都有會計系統功能閒置的問題，由其是立沖帳功能尤為重要，能確保其正確性和效率性；因此在一到職的前期，會較別人投入雙倍的心力去鑽研系統的前端模組架設等…與資料庫的建置，重新整合以提升工作效率並同時兼顧日常帳務。在積極整頓的過程雖堅辛卻同時為我帶來動力與成就感，這也是為何我總能接下人事經常變動或空窗已久的職位；也是為何同一份工作別人需要加班才能完成任務，而我卻能準時下班之原多年的工作經驗也讓我培養出耐心及細心，保持親切的態度是我對自己最基本的要求。對於主管的交辦事項總是持著使命必達的心態，面對自身工作有著零缺失的期許，並對自已的工作負百分之一百的責任；不怕忙，但求更有效率且精準的完成，並且從中獲得成就感，是我主要的動力來源之一；面對新知，是好學的，不畫地自限，有更好的作業方式或專業知識的精進，都會樂意並感恩的吸取學習，以上是我一直以來秉持的工作態度。
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="box">
+            <p><a id="link1"></a>繪畫作品</p>
+            <ul>
+                <li>
+                    <a href="./images/p1.jpg" data-lightbox="group">
+                        <img src="./images/p1.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="./images/p2.jpg" data-lightbox="group">
+                        <img src="./images/p2.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="./images/p3.jpg" data-lightbox="group">
+                        <img src="./images/p3.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="./images/p4.jpg" data-lightbox="group">
+                        <img src="./images/p4.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="./images/p5.jpg" data-lightbox="group">
+                        <img src="./images/p5.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="./images/p6.jpg" data-lightbox="group">
+                        <img src="./images/p6.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="./images/p7.jpg" data-lightbox="group">
+                        <img src="./images/p7.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="./images/p8.jpg" data-lightbox="group">
+                        <img src="./images/p8.jpg" alt="">
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="box">
+            <p><a id="link2"></a>設計作品</p>
+            <ul>
+                <li>
+                    <a href="./images/p9.jpg" data-lightbox="group2">
+                        <img src="./images/p9.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="./images/p10.jpg" data-lightbox="group2">
+                        <img src="./images/p10.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="./images/p11.jpg" data-lightbox="group2">
+                        <img src="./images/p11.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="./images/p12.jpg" data-lightbox="group2">
+                        <img src="./images/p12.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="./images/p13.jpg" data-lightbox="group2">
+                        <img src="./images/p13.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="./images/p14.jpg" data-lightbox="group2">
+                        <img src="./images/p14.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="./images/p15.jpg" data-lightbox="group2">
+                        <img src="./images/p15.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="./images/p16.jpg" data-lightbox="group2">
+                        <img src="./images/p16.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="./images/p17.jpg" data-lightbox="group2">
+                        <img src="./images/p17.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="./images/p18.jpg" data-lightbox="group2">
+                        <img src="./images/p18.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="./images/p19.jpg" data-lightbox="group2">
+                        <img src="./images/p19.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="./images/p20.jpg" data-lightbox="group2">
+                        <img src="./images/p20.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="./images/p21.jpg" data-lightbox="group2">
+                        <img src="./images/p21.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="./images/p22.jpg" data-lightbox="group2">
+                        <img src="./images/p22.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="./images/p23.jpg" data-lightbox="group2">
+                        <img src="./images/p23.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="./images/p24.jpg" data-lightbox="group2">
+                        <img src="./images/p24.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="./images/p25.jpg" data-lightbox="group2">
+                        <img src="./images/p25.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="./images/p26.jpg" data-lightbox="group2">
+                        <img src="./images/p26.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="./images/p27.jpg" data-lightbox="group2">
+                        <img src="./images/p27.jpg" alt="">
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+        <div class="content">
+            <p><a id="link3"></a>工作經歷</p>
+            <img src="./images/p32.PNG" alt="">
+            <img src="./images/p33.PNG" alt="">
+            <img src="./images/p34.PNG" alt="">
+            <img src="./images/p35.PNG" alt="">
+            <img src="./images/p36.PNG" alt="">
+        </div>
+        <p class="s"><a id="link4"></a>學經證照</p>
+        <div class="nav">
+
+            <div class="item">
+                <img src="./images/p28.png" alt="">
+                <div class="txt">
+                    <h2>採購專業人員基礎訓練及格證書</h2>
+                    <p>行政院公共工程委員會</p>
+                </div>
+            </div>
+ 
+            <div class="item">
+                <img src="./images/p29.PNG" alt="">
+                <div class="txt">
+                    <h2>丙種職業安全衛生業務主管證照</h2>
+                    <p>社團法人中華產業協會附設職業訓練中心</p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="./images/p30.PNG" alt="">
+                <div class="txt">
+                    <h2>推薦函</h2>
+                    <p>財團法人法律扶助基金會 桃園分會</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>另個工作室
+                <p>
+                    <p>0934-015-150</p>
+                    <p>feelapple@hotmail.com</p>
+        </div>
+    </div>
+    <script src="./js/jquery-1.11.3.min.js"></script>
+    <script src="./lightbox/js/lightbox.js"></script>   /*燈箱效果*/
+    <script src="./js/jquery.jcarousellite.min.js"></script>    /*輪播*/
+
+    <script>
+        $(function () {
+            $(".box").jCarouselLite({
+                auto: 1800,
+                speed: 1200,
+                scroll: 3,
+                visible: 3,
+
+            });
+        });
+    </script>
+    
+</body>
+
+</html>
